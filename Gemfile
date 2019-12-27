@@ -54,3 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # viewをerbからhamlへの変換
 gem 'haml-rails'
+
+# スクリーンショットに必要
+gem 'selenium-webdriver'
+gem 'rmagick'
