@@ -58,3 +58,6 @@ gem 'haml-rails'
 # スクリーンショットに必要
 gem 'selenium-webdriver'
 gem 'rmagick'
+
+# スクリーンショットした画像をダウンロードさせるために必要
+gem 'carrierwave'

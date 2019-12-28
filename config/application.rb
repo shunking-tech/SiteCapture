@@ -19,6 +19,7 @@ Bundler.require(*Rails.groups)
 
 module SiteCapture
   class Application < Rails::Application
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

@@ -72,8 +72,23 @@ class CapturesController < ApplicationController
 			x += innerW
 		end
     
-    # ファイルに書き込む
+		# ファイルに書き込む
+		# [TODO] 生成されるファイル名が被らないようにする
+		# [TODO] 生成されるファイルを削除する処理が必要
 		image.write('screenshot.png')
+
+		# スクリーンショットを一時的に保存(アップロード)する
+		cap = Rack::Test::UploadedFile.new('screenshot.png', 'image/png')
+		capture = Capture.new(image: cap)
+		capture.save
+
+		# 一時的に保存したスクリーンショットをダウンロードする
+		img = capture.image
+		send_data(img.read, filename: "capture#{File.extname(img.path)}")
+
+		# 一時的に保存したスクリーンショットを削除する
+		capture.destroy
+
 	end
 	
 end
