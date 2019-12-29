@@ -5,10 +5,15 @@ class CapturesController < ApplicationController
 
   def execute
     driver = Selenium::WebDriver.for :chrome
-    driver.get("https://sugureware.com/page-8/")
+    driver.get(url_params)
     get_screenshot(driver)
   end
 
+	private
+
+	def url_params
+		params.permit(:url)[:url]
+	end
 
 ###以下、メソッド###
 

@@ -1,1 +1,5 @@
-captures#new
+= form_with url: captures_execute_path, local: true do |f|
+  = f.label :url, "キャプチャーしたいサイトのURLを入力してください"
+  = f.text_field :url
+
+  = f.submit "キャプチャー実行"
